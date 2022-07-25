@@ -14,7 +14,7 @@ if "READTHEDOCS" in os.environ:
 install_requires = [
     "python-dateutil<=2.8.99999",
     "pycryptodome<=3.8.99999",
-    "requests<=2.22.99999",
+    "requests",
     "readerwriterlock<=1.0.99999",
 ]
 
