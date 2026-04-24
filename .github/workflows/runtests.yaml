@@ -32,9 +32,9 @@ jobs:
           - 5432:5432
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2.3.4
       with:
         python-version: ${{ matrix.python-version }}
     - name: Setup database
@@ -53,7 +53,7 @@ jobs:
       run: make test
 
     - name: Coveralls
-      uses: AndreMiras/coveralls-python-action@develop
+      uses: AndreMiras/coveralls-python-action@ac868b9540fad490f7ca82b8ca00480fd751ed19 # develop
       with:
         parallel: true
         flag-name: Unit Test
@@ -69,9 +69,9 @@ jobs:
         python-version: ["3.7", "3.8", "3.9", "3.10"]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@ee0669bd1cc54295c223e0bb666b733df41de1c5 # v2.7.0
     - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@e9aba2c848f5ebd159c070c61ea2c4e2b122355e # v2.3.4
       with:
         python-version: ${{ matrix.python-version }}
 
@@ -94,6 +94,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Coveralls Finished
-      uses: AndreMiras/coveralls-python-action@develop
+      uses: AndreMiras/coveralls-python-action@ac868b9540fad490f7ca82b8ca00480fd751ed19 # develop
       with:
         parallel-finished: true
