@@ -634,9 +634,9 @@ class Application(ABC):
     name = "Application"
     env: EnvType = {}
     is_snapshotting_enabled: bool = False
-    snapshotting_intervals: Optional[Dict[Type[MutableOrImmutableAggregate], int]] = (
-        None
-    )
+    snapshotting_intervals: Optional[
+        Dict[Type[MutableOrImmutableAggregate], int]
+    ] = None
     snapshotting_projectors: Optional[
         Dict[Type[MutableOrImmutableAggregate], ProjectorFunction[Any, Any]]
     ] = None
@@ -674,9 +674,9 @@ class Application(ABC):
         self.repository = self.construct_repository()
         self.notification_log = self.construct_notification_log()
         self.closing = Event()
-        self.previous_max_notification_id: Optional[int] = (
-            self.recorder.max_notification_id()
-        )
+        self.previous_max_notification_id: Optional[
+            int
+        ] = self.recorder.max_notification_id()
 
     @property
     def log(self) -> LocalNotificationLog:

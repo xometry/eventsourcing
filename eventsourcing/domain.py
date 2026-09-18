@@ -73,7 +73,8 @@ class MutableAggregateProtocol(Protocol):
         ...  # pragma: no cover
 
     @version.setter
-    def version(self, value: int) -> None: ...  # pragma: no cover
+    def version(self, value: int) -> None:
+        ...  # pragma: no cover
 
 
 class ImmutableAggregateProtocol(Protocol):
@@ -108,7 +109,8 @@ class CollectEventsProtocol(Protocol):
     Protocol for aggregates that support collecting pending events.
     """
 
-    def collect_events(self) -> Sequence[DomainEventProtocol]: ...  # pragma: no cover
+    def collect_events(self) -> Sequence[DomainEventProtocol]:
+        ...  # pragma: no cover
 
 
 @runtime_checkable
@@ -422,12 +424,14 @@ class CommandMethodDecorator:
     @overload
     def __get__(
         self, instance: None, owner: MetaAggregate[Aggregate]
-    ) -> Union[UnboundCommandMethodDecorator, property]: ...  # pragma: no cover
+    ) -> Union[UnboundCommandMethodDecorator, property]:
+        ...  # pragma: no cover
 
     @overload
     def __get__(
         self, instance: Aggregate, owner: MetaAggregate[Aggregate]
-    ) -> Union[BoundCommandMethodDecorator, Any]: ...  # pragma: no cover
+    ) -> Union[BoundCommandMethodDecorator, Any]:
+        ...  # pragma: no cover
 
     def __get__(
         self, instance: Optional[Aggregate], owner: MetaAggregate[Aggregate]
@@ -456,21 +460,24 @@ class CommandMethodDecorator:
 
 # Called when actually decorating something.
 @overload
-def event(arg: TDecoratedObjType) -> TDecoratedObjType: ...  # pragma: no cover
+def event(arg: TDecoratedObjType) -> TDecoratedObjType:
+    ...  # pragma: no cover
 
 
 # Called when specifying event.
 @overload
 def event(
     arg: EventSpecType,
-) -> Callable[[TDecoratedObjType], TDecoratedObjType]: ...  # pragma: no cover
+) -> Callable[[TDecoratedObjType], TDecoratedObjType]:
+    ...  # pragma: no cover
 
 
 # Called without specifying event.
 @overload
 def event(
     arg: None = None,
-) -> Callable[[TDecoratedObjType], TDecoratedObjType]: ...  # pragma: no cover
+) -> Callable[[TDecoratedObjType], TDecoratedObjType]:
+    ...  # pragma: no cover
 
 
 def event(
@@ -1426,14 +1433,17 @@ class VersionError(OriginatorVersionError):
 
 class SnapshotProtocol(DomainEventProtocol, Protocol):
     @property
-    def topic(self) -> str: ...  # pragma: no cover
+    def topic(self) -> str:
+        ...  # pragma: no cover
 
     @property
-    def state(self) -> Dict[str, Any]: ...  # pragma: no cover
+    def state(self) -> Dict[str, Any]:
+        ...  # pragma: no cover
 
     # Todo: Improve on this 'Any'.
     @classmethod
-    def take(cls: Any, aggregate: Any) -> Any: ...  # pragma: no cover
+    def take(cls: Any, aggregate: Any) -> Any:
+        ...  # pragma: no cover
 
 
 TCanSnapshotAggregate = TypeVar("TCanSnapshotAggregate", bound="CanSnapshotAggregate")
