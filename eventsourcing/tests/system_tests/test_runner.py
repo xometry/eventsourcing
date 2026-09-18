@@ -675,27 +675,27 @@ class TestMultiThreadedRunnerWithSQLiteInMemory(TestMultiThreadedRunner):
     def setUp(self):
         super().setUp()
         os.environ["PERSISTENCE_MODULE"] = "eventsourcing.sqlite"
-        os.environ[
-            f"{BankAccounts.name.upper()}_SQLITE_DBNAME"
-        ] = f"file:{BankAccounts.name.lower()}?mode=memory&cache=shared"
-        os.environ[
-            f"{EmailProcess.name.upper()}_SQLITE_DBNAME"
-        ] = f"file:{EmailProcess.name.lower()}?mode=memory&cache=shared"
-        os.environ[
-            f"MY{EmailProcess.name.upper()}_SQLITE_DBNAME"
-        ] = f"file:{EmailProcess.name.lower()}?mode=memory&cache=shared"
-        os.environ[
-            f"{EmailProcess.name.upper()}2_SQLITE_DBNAME"
-        ] = f"file:{EmailProcess.name.lower()}2?mode=memory&cache=shared"
-        os.environ[
-            "BROKENPROCESSING_SQLITE_DBNAME"
-        ] = "file:brokenprocessing?mode=memory&cache=shared"
-        os.environ[
-            "BROKENCONVERTING_SQLITE_DBNAME"
-        ] = "file:brokenconverting?mode=memory&cache=shared"
-        os.environ[
-            "BROKENPULLING_SQLITE_DBNAME"
-        ] = "file:brokenprocessing?mode=memory&cache=shared"
+        os.environ[f"{BankAccounts.name.upper()}_SQLITE_DBNAME"] = (
+            f"file:{BankAccounts.name.lower()}?mode=memory&cache=shared"
+        )
+        os.environ[f"{EmailProcess.name.upper()}_SQLITE_DBNAME"] = (
+            f"file:{EmailProcess.name.lower()}?mode=memory&cache=shared"
+        )
+        os.environ[f"MY{EmailProcess.name.upper()}_SQLITE_DBNAME"] = (
+            f"file:{EmailProcess.name.lower()}?mode=memory&cache=shared"
+        )
+        os.environ[f"{EmailProcess.name.upper()}2_SQLITE_DBNAME"] = (
+            f"file:{EmailProcess.name.lower()}2?mode=memory&cache=shared"
+        )
+        os.environ["BROKENPROCESSING_SQLITE_DBNAME"] = (
+            "file:brokenprocessing?mode=memory&cache=shared"
+        )
+        os.environ["BROKENCONVERTING_SQLITE_DBNAME"] = (
+            "file:brokenconverting?mode=memory&cache=shared"
+        )
+        os.environ["BROKENPULLING_SQLITE_DBNAME"] = (
+            "file:brokenprocessing?mode=memory&cache=shared"
+        )
         os.environ["COMMANDS_SQLITE_DBNAME"] = "file:commands?mode=memory&cache=shared"
         os.environ["RESULTS_SQLITE_DBNAME"] = "file:results?mode=memory&cache=shared"
 
